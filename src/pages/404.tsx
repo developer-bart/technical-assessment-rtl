@@ -1,7 +1,7 @@
-import React from "react"
+import React from 'react'
 
 // Components
-import Seo from "../components/Seo"
+import Seo from '../components/Seo'
 
 const NotFoundPage: React.FC = () => (
   <>

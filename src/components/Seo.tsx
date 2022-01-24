@@ -1,6 +1,5 @@
-import React from "react"
-import Helmet from "react-helmet"
-// import { useStaticQuery, graphql } from "gatsby"
+import React from 'react'
+import Helmet from 'react-helmet'
 
 interface IMeta {
   name: string
@@ -16,25 +15,17 @@ interface IProps {
 
 const Seo: React.FC<IProps> = ({
   title,
-  description = "",
-  lang = "en-nl",
+  description = '',
+  lang = 'en-nl',
   meta = [],
 }) => {
-  // const { site } = useStaticQuery(
-  //   graphql`
-  //     query {
-  //       site {
-  //         siteMetadata {
-  //           title
-  //           description
-  //           author
-  //         }
-  //       }
-  //     }
-  //   `
-  // )
+  const defaultValues = {
+    title: 'Gatsby v4 Starter',
+    description: 'This is a starter project based on Gatsby v4.',
+    author: 'Bart Beemster',
+  }
 
-  const metaDescription = description
+  const metaDescription = description || defaultValues.description
 
   return (
     <Helmet
@@ -42,38 +33,38 @@ const Seo: React.FC<IProps> = ({
         lang,
       }}
       title={title}
-      titleTemplate={`%s | `}
+      titleTemplate={`%s | ${defaultValues.title}`}
       meta={[
         {
-          name: `description`,
+          name: 'description',
           content: metaDescription,
         },
         {
-          property: `og:title`,
+          property: 'og:title',
           content: title,
         },
         {
-          property: `og:description`,
+          property: 'og:description',
           content: metaDescription,
         },
         {
-          property: `og:type`,
-          content: `website`,
+          property: 'og:type',
+          content: 'website',
         },
         {
-          name: `twitter:card`,
-          content: `summary`,
+          name: 'twitter:card',
+          content: 'summary',
         },
         {
-          name: `twitter:creator`,
-          content: "",
+          name: 'twitter:creator',
+          content: defaultValues.author,
         },
         {
-          name: `twitter:title`,
+          name: 'twitter:title',
           content: title,
         },
         {
-          name: `twitter:description`,
+          name: 'twitter:description',
           content: metaDescription,
         },
       ].concat(meta || [])}
