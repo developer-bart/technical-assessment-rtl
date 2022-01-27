@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 // Components
-import Seo from "../components/Seo";
+import Seo from '../components/Seo'
 
 const Homepage: React.FC = () => (
   <>
@@ -10,6 +10,6 @@ const Homepage: React.FC = () => (
     <p>Welcome to your new Gatsby site.</p>
     <p>Now go build something great.</p>
   </>
-);
+)
 
-export default Homepage;
+export default Homepage

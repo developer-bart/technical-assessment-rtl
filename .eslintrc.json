@@ -27,5 +27,10 @@
         "allow": ["info", "warn", "error"]
       }
     ]
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    }
   }
 }
