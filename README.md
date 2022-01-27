@@ -1,54 +1,47 @@
-<p align="center">
-  <a href="https://www.gatsbyjs.com/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter">
-    <img alt="Gatsby" src="https://www.gatsbyjs.com/Gatsby-Monogram.svg" width="60" />
-  </a>
-</p>
-<h1 align="center">
-  Gatsby minimal starter
-</h1>
+# Gatsby v4 Starter
+
+This is a starter project based on Gatsby v4. It includes Typescript, ESLint, Prettier, Husky, Styled Components (theming), React Helmet (Seo component), consistent layout, sitemap & manifest by default.
 
 ## 🚀 Quick start
 
-1.  **Create a Gatsby site.**
-
-    Use the Gatsby CLI to create a new site, specifying the minimal starter.
+1.  **Clone the project**
 
     ```shell
-    # create a new Gatsby site using the minimal starter
-    npm init gatsby
+    git clone git@github.com:developer-bart/Gatsby-v4-Starter.git
     ```
 
-2.  **Start developing.**
+2.  **Node version**
 
-    Navigate into your new site’s directory and start it up.
+    _Make sure you have [nvm](https://nvm.sh) installed._
 
     ```shell
-    cd my-gatsby-site/
-    npm run develop
+    nvm use
     ```
 
-3.  **Open the code and start customizing!**
+3.  **Environment variables**
 
-    Your site is now running at http://localhost:8000!
+    Copy `.env` to `.env.development` and add the environment values.
 
-    Edit `src/pages/index.js` to see your site update in real-time!
+4.  **Install & start**
 
-4.  **Learn more**
+    ```shell
+    yarn && yarn start
+    ```
 
-    - [Documentation](https://www.gatsbyjs.com/docs/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## 🏗 Build locally
 
-    - [Tutorials](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+Copy `.env.development` to `.env.production`.
 
-    - [Guides](https://www.gatsbyjs.com/tutorial/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+```shell
+yarn build && yarn serve
+```
 
-    - [API Reference](https://www.gatsbyjs.com/docs/api-reference/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## 🔌 VSC preferred plugins
 
-    - [Plugin Library](https://www.gatsbyjs.com/plugins?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+1. [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
+2. [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
+3. [TSLint](https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-typescript-tslint-plugin)
 
-    - [Cheat Sheet](https://www.gatsbyjs.com/docs/cheat-sheet/?utm_source=starter&utm_medium=readme&utm_campaign=minimal-starter)
+## 👨‍💻 Contributors
 
-## 🚀 Quick start (Gatsby Cloud)
-
-Deploy this starter with one click on [Gatsby Cloud](https://www.gatsbyjs.com/cloud/):
-
-[<img src="https://www.gatsbyjs.com/deploynow.svg" alt="Deploy to Gatsby Cloud">](https://www.gatsbyjs.com/dashboard/deploynow?url=https://github.com/gatsbyjs/gatsby-starter-minimal)
+- [Bart Beemster](https://github.com/developer-bart) - [b.beemster@live.nl](mailto:b.beemster@live.nl?subject=[Github]%Gatsby%20v4%20Starter)
