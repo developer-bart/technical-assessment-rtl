@@ -1,5 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
+import { useStaticQuery, graphql } from 'gatsby'
 
 interface IMeta {
   name: string
@@ -19,21 +20,27 @@ const Seo: React.FC<IProps> = ({
   lang = 'en-nl',
   meta = [],
 }) => {
-  const defaultValues = {
-    title: 'Gatsby v4 Starter',
-    description: 'This is a starter project based on Gatsby v4.',
-    author: 'Bart Beemster',
-  }
+  const { site } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            title
+            description
+          }
+        }
+      }
+    `
+  )
 
-  const metaDescription = description || defaultValues.description
-
+  const metaDescription = description || site.siteMetadata.description
   return (
     <Helmet
       htmlAttributes={{
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${defaultValues.title}`}
+      titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: 'description',
@@ -54,10 +61,6 @@ const Seo: React.FC<IProps> = ({
         {
           name: 'twitter:card',
           content: 'summary',
-        },
-        {
-          name: 'twitter:creator',
-          content: defaultValues.author,
         },
         {
           name: 'twitter:title',

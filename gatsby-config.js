@@ -1,6 +1,7 @@
 module.exports = {
   siteMetadata: {
     title: 'basic-project',
+    description: 'Your project description',
     siteUrl: 'https://www.yourdomain.tld',
   },
   plugins: [

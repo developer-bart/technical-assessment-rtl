@@ -18,11 +18,7 @@ This is a starter project based on Gatsby v4. It includes Typescript, ESLint, Pr
     nvm use
     ```
 
-3.  **Environment variables**
-
-    Copy `.env` to `.env.development` and add the environment values.
-
-4.  **Install & start**
+3.  **Install & start**
 
     ```shell
     yarn && yarn start
@@ -44,4 +40,4 @@ yarn build && yarn serve
 
 ## 👨‍💻 Contributors
 
-- [Bart Beemster](https://github.com/developer-bart) - [b.beemster@live.nl](mailto:b.beemster@live.nl?subject=[Github]%Gatsby%20v4%20Starter)
+- [Bart Beemster](https://github.com/developer-bart)
