@@ -1,8 +1,10 @@
-export default {
+const theme = {
   colors: {
-    white: '#ffffff',
-    black: '#2C2C2C',
-    blue: '#0095da',
+    primary: '#0095da',
+    neutral: {
+      white: '#ffffff',
+      black: '#2C2C2C',
+    },
   },
   fonts: {
     // eslint-disable-next-line quotes
@@ -14,3 +16,11 @@ export default {
     L: 1280,
   },
 }
+
+export interface ITheme {
+  colors: typeof theme.colors
+  fonts: typeof theme.fonts
+  sizes: typeof theme.sizes
+}
+
+export default theme as ITheme
