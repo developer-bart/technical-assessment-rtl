@@ -1,83 +1,51 @@
-import React from 'react'
-import Helmet from 'react-helmet'
+import React, { ReactNode } from 'react'
 import { useStaticQuery, graphql } from 'gatsby'
 
-interface IMeta {
-  name: string
-  content: string
-}
-
 interface IProps {
-  title: string
+  title?: string
   description?: string
-  lang?: string
-  meta?: IMeta[]
+  lang?: 'nl' | 'en'
+  children?: ReactNode
 }
 
-const Seo: React.FC<IProps> = ({
-  title,
-  description = '',
-  lang = 'en-nl',
-  meta = [],
-}) => {
-  const { site } = useStaticQuery(
-    graphql`
-      query {
-        site {
-          siteMetadata {
-            title
-            description
-          }
+const Seo = ({ title, description, lang = 'nl' }: IProps) => {
+  const data = useStaticQuery(graphql`
+    query {
+      site {
+        siteMetadata {
+          title
+          description
         }
       }
-    `
-  )
+    }
+  `)
 
-  const metaDescription = description || site.siteMetadata.description
+  const { title: defaultTitle, description: defaultDescription } =
+    data.site.siteMetadata
+
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
-      }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: 'description',
-          content: metaDescription,
-        },
-        {
-          property: 'og:title',
-          content: title,
-        },
-        {
-          property: 'og:description',
-          content: metaDescription,
-        },
-        {
-          property: 'og:type',
-          content: 'website',
-        },
-        {
-          name: 'twitter:card',
-          content: 'summary',
-        },
-        {
-          name: 'twitter:title',
-          content: title,
-        },
-        {
-          name: 'twitter:description',
-          content: metaDescription,
-        },
-      ].concat(meta || [])}
-    >
+    <>
+      <html lang={`nl-${lang}`} />
+      <title>{title ?? defaultTitle}</title>
+      <meta name="description" content={description ?? defaultDescription} />
+      <meta
+        property="og:description"
+        content={description ?? defaultDescription}
+      />
+      <meta property="og:type" content="website" />
+      <meta name="twitter:title" content={title ?? defaultTitle} />
+      <meta
+        name="twitter:description"
+        content={description ?? defaultDescription}
+      />
+
+      {/* Load fonts */}
       <link
         rel="stylesheet"
         type="text/css"
         href="https://fonts.googleapis.com/css?family=Open+Sans:400,700&display=swap"
       />
-    </Helmet>
+    </>
   )
 }
 
