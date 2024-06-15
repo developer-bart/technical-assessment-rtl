@@ -30,10 +30,6 @@ const Wrapper = styled.div`
     color: ${theme.colors.text};
     background-color: ${theme.colors.background};
     font-family: ${theme.fonts.primary};
-
-    a {
-      color: ${theme.colors.primary};
-    }
   `}
 `
 

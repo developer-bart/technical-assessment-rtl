@@ -5,3 +5,14 @@ exports.onCreateWebpackConfig = ({ getConfig, actions }) => {
     })
   }
 }
+
+exports.onCreatePage = async ({ page, actions }) => {
+  const { createPage } = actions
+  // Create dynamic article url's
+  if (page.path.match(/^\/article/)) {
+    page.matchPath = '/article/:id'
+    createPage({
+      ...page,
+    })
+  }
+}

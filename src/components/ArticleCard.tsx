@@ -1,5 +1,6 @@
 import React, { FC } from 'react'
 import styled from 'styled-components'
+import { Link } from 'gatsby'
 
 interface IProps {
   id: number
@@ -8,12 +9,12 @@ interface IProps {
   image: string
 }
 
-const ArticleCard: FC<IProps> = ({ title, description, image }) => (
-  <Container>
+const ArticleCard: FC<IProps> = ({ id, title, description, image }) => (
+  <StyledLink to={`article/${id}`}>
     <img src={image} alt={title} />
     <Title>{title}</Title>
     <Description>{description}</Description>
-  </Container>
+  </StyledLink>
 )
 
 const Title = styled.h2`
@@ -21,8 +22,10 @@ const Title = styled.h2`
   margin-bottom: 14px;
 `
 
-const Container = styled.div`
+const StyledLink = styled(Link)`
+  text-decoration: none;
   cursor: pointer;
+  color: ${({ theme }) => theme.colors.text};
   display: flex;
   flex-direction: column;
   background-color: ${({ theme }) => theme.colors.card};

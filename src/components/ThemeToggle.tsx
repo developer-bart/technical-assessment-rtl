@@ -12,7 +12,11 @@ const ThemeToggle: FC = () => {
     <Container>
       <Label>Darktheme</Label>
       <Toggle>
-        <input onChange={() => toggleTheme()} type="checkbox" />
+        <input
+          onChange={() => toggleTheme()}
+          type="checkbox"
+          checked={theme === 'dark'}
+        />
         <Slider />
       </Toggle>
     </Container>
