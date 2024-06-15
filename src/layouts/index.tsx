@@ -1,33 +1,38 @@
 import React, { ReactNode } from 'react'
-import styled, { ThemeProvider } from 'styled-components'
+import styled, { css } from 'styled-components'
+import ThemeContextProvider from '../context/ThemeContextProvider'
+import ThemeLayout from './themeLayout'
 
 // Styling
 import CSSReset from '../styles/reset'
 import GlobalStyle from '../styles/'
-import theme from '../styles/theme'
 
 interface IProps {
   children: ReactNode
 }
 
-const Layout: React.FC<IProps> = ({ children }) => (
-  <>
-    <CSSReset />
-    <GlobalStyle />
-    <ThemeProvider theme={theme}>
-      <Wrapper>{children}</Wrapper>
-    </ThemeProvider>
-  </>
-)
+const Layout: React.FC<IProps> = ({ children }) => {
+  return (
+    <>
+      <CSSReset />
+      <GlobalStyle />
+      <ThemeContextProvider>
+        <ThemeLayout>
+          <Wrapper>{children}</Wrapper>
+        </ThemeLayout>
+      </ThemeContextProvider>
+    </>
+  )
+}
 
 const Wrapper = styled.div`
-  ${({ theme }) => `
-    color: ${theme.colors.black};
-    background-color: ${theme.colors.white};
+  ${({ theme }) => css`
+    color: ${theme.colors.text};
+    background-color: ${theme.colors.background};
     font-family: ${theme.fonts.primary};
 
     a {
-      color: ${theme.colors.blue};
+      color: ${theme.colors.primary};
     }
   `}
 `
