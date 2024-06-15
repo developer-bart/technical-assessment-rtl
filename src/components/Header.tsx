@@ -13,7 +13,7 @@ const Header: FC = () => (
 const Container = styled.div`
   display: flex;
   justify-content: flex-end;
-  padding: 12px;
+  padding: 18px;
   background-color: ${({ theme }) => theme.colors.card};
 `
 
