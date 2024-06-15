@@ -19,5 +19,11 @@
     "typeRoots": ["./node_modules/@types/"]
   },
   "include": ["typings", "src/**/*"],
-  "exclude": [".cache", "public", "node_modules", "gatsby-*.js"]
+  "exclude": [
+    ".cache",
+    "public",
+    "node_modules",
+    "gatsby-*.js",
+    "src/**/*.test.js"
+  ]
 }
